@@ -5,7 +5,7 @@ export function AddTodo() {
   return (
     <div className="flex-container">
       <input className="input" type="text" placeholder="Text input" />
-      <button class="button is-primary">Add Todo</button>
+      <button className="button is-primary">Add Todo</button>
     </div>
   );
 }

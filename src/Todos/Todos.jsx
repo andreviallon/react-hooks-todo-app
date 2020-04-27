@@ -14,20 +14,22 @@ export function Todos() {
     <div>
       <AddTodo />
       <div className="todo-list">
-        <div class="table-container">
-          <table class="table is-fullwidth is-hoverable">
+        <div className="table-container">
+          <table className="table is-fullwidth is-hoverable">
             <thead>
-              <th>
-                <div title="Todos">Todos</div>
-              </th>
+              <tr>
+                <th>
+                  <div title="Todos">Todos</div>
+                </th>
+              </tr>
             </thead>
             <tbody>
               {todos.map((todo, index) => (
-                <tr>
+                <tr key={index}>
                   <td className="table-todo">
                     <label className="checkbox">
                       <input type="checkbox" />
-                      <Todo key={index} index={index} todo={todo} />
+                      <Todo todo={todo} />
                     </label>
                   </td>
                 </tr>
