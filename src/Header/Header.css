@@ -1,0 +1,13 @@
+h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: black;
+  font-weight: 900;
+}
+
+.navbar-brand {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  width: 100%;
+}
