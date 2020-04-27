@@ -18,3 +18,9 @@ input {
 td {
   font-weight: bold;
 }
+
+.table-todo {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}

@@ -31,6 +31,7 @@ export function Todos() {
                       <input type="checkbox" />
                       <Todo todo={todo} />
                     </label>
+                    <a className="delete"></a>
                   </td>
                 </tr>
               ))}
