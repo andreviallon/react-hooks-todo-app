@@ -10,17 +10,18 @@ const InputValue = defaultValue => {
   };
 };
 
-export function AddTodo(submit) {
-  const todo = InputValue('');
+export function AddTodo({ onSubmit }) {
+  const todo = InputValue("");
 
   return (
     <form
       className="flex-container"
       onSubmit={e => {
         e.preventDefault();
-        submit.onSubmit(todo.value);
-      }}>
-      <input className="input" type="text" placeholder="Todo" {...todo}/>
+        onSubmit(todo.value);
+      }}
+    >
+      <input className="input" type="text" placeholder="Todo" {...todo} />
       <button className="button is-primary">Add Todo</button>
     </form>
   );
