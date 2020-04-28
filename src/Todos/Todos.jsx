@@ -5,14 +5,14 @@ import { Todo } from "../Todo/Todo";
 
 export function Todos() {
   const [todos, setTodos] = useState([
-    { text: "Learn about React Hooks" },
-    { text: "Code an app" },
-    { text: "Code some more" }
+    "Learn about React Hooks",
+    "Code an app",
+    "Code some more"
   ]);
 
   return (
     <div>
-      <AddTodo />
+      <AddTodo onSubmit={todo => setTodos([todo, ...todos])}/>
       <div className="todo-list">
         <div className="table-container">
           <table className="table is-fullwidth is-hoverable">

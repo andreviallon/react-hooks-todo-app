@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Add-Todo.css";
 
-export function AddTodo() {
+const InputValue = defaultValue => {
+  const [value, setValue] = useState(defaultValue);
+
+  return {
+    value,
+    onChange: e => setValue(e.target.value)
+  };
+};
+
+export function AddTodo(submit) {
+  const todo = InputValue('');
+
   return (
-    <div className="flex-container">
-      <input className="input" type="text" placeholder="Text input" />
+    <form
+      className="flex-container"
+      onSubmit={e => {
+        e.preventDefault();
+        submit.onSubmit(todo.value);
+      }}>
+      <input className="input" type="text" placeholder="Todo" {...todo}/>
       <button className="button is-primary">Add Todo</button>
-    </div>
+    </form>
   );
 }
