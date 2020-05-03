@@ -5,9 +5,9 @@ import { Todo } from "../Todo/Todo";
 
 export function Todos() {
   const [todos, setTodos] = useState([
-    "Learn about React Hooks",
-    "Code an app",
-    "Code some more"
+    { title: "Learn about React Hooks", isCompleted: false },
+    { title: "Code an app", isCompleted: false },
+    { title: "Code some more", isCompleted: false }
   ]);
 
   const deleteTodo = index => {
@@ -16,9 +16,19 @@ export function Todos() {
     setTodos(newTodos);
   };
 
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  };
+
   return (
     <div>
-      <AddTodo onSubmit={todo => setTodos([...todos, todo])} />
+      <AddTodo
+        onSubmit={todo =>
+          setTodos([...todos, { title: todo, isCompleted: false }])
+        }
+      />
       <div className="todo-list">
         <div className="table-container">
           <table className="table is-fullwidth is-hoverable">
@@ -31,18 +41,13 @@ export function Todos() {
             </thead>
             <tbody>
               {todos.map((todo, index) => (
-                <tr key={index}>
-                  <td className="table-todo">
-                    <label className="checkbox">
-                      <input type="checkbox" />
-                      <Todo todo={todo} />
-                    </label>
-                    <span
-                      className="delete"
-                      onClick={index => deleteTodo(index)}
-                    />
-                  </td>
-                </tr>
+                <Todo
+                  key={index}
+                  index={index}
+                  todo={todo}
+                  completeTodo={completeTodo}
+                  deleteTodo={deleteTodo}
+                />
               ))}
             </tbody>
           </table>
