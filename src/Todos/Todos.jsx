@@ -5,7 +5,7 @@ import { Todo } from "../Todo/Todo";
 
 export function Todos() {
   const [todos, setTodos] = useState([
-    { title: "Learn about React Hooks", isCompleted: false },
+    { title: "Learn about React Hooks", isCompleted: true },
     { title: "Code an app", isCompleted: false },
     { title: "Code some more", isCompleted: false }
   ]);

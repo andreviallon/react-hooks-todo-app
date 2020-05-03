@@ -7,7 +7,7 @@ const InputValue = defaultValue => {
   return {
     value,
     onChange: e => setValue(e.target.value),
-    clearField: () => setValue("")
+    clear: () => setValue("")
   };
 };
 
@@ -20,7 +20,7 @@ export function AddTodo({ onSubmit }) {
       onSubmit={e => {
         e.preventDefault();
         onSubmit(todo.value);
-        todo.clearField();
+        todo.clear();
       }}
     >
       <input className="input" type="text" placeholder="Todo" {...todo} />
