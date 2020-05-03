@@ -10,9 +10,16 @@ export function Todos() {
     "Code some more"
   ]);
 
+  const deleteTodo = index => {
+    //const newTodos = todos.splice(index, 1);
+    console.log("index", index);
+    //console.log("newTodos", newTodos);
+    //setTodos(newTodos);
+  };
+
   return (
     <div>
-      <AddTodo onSubmit={todo => setTodos([todo, ...todos])}/>
+      <AddTodo onSubmit={todo => setTodos([todo, ...todos])} />
       <div className="todo-list">
         <div className="table-container">
           <table className="table is-fullwidth is-hoverable">
@@ -31,7 +38,10 @@ export function Todos() {
                       <input type="checkbox" />
                       <Todo todo={todo} />
                     </label>
-                    <a className="delete"></a>
+                    <span
+                      className="delete"
+                      onClick={index => deleteTodo(index)}
+                    />
                   </td>
                 </tr>
               ))}
