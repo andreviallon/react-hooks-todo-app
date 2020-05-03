@@ -11,15 +11,14 @@ export function Todos() {
   ]);
 
   const deleteTodo = index => {
-    //const newTodos = todos.splice(index, 1);
-    console.log("index", index);
-    //console.log("newTodos", newTodos);
-    //setTodos(newTodos);
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
   };
 
   return (
     <div>
-      <AddTodo onSubmit={todo => setTodos([todo, ...todos])} />
+      <AddTodo onSubmit={todo => setTodos([...todos, todo])} />
       <div className="todo-list">
         <div className="table-container">
           <table className="table is-fullwidth is-hoverable">
