@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Todos.css";
-import { AddTodo } from "../AddTodo/Add-Todo";
+import { AddTodo } from "../AddTodo/AddTodo";
 import { Todo } from "../Todo/Todo";
 
 export function Todos() {

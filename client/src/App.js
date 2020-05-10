@@ -2,8 +2,8 @@ import React from "react";
 import "./styles.css";
 import "bulma/css/bulma.css";
 
-import { Header } from "./Header/Header";
-import { Todos } from "./Todos/Todos";
+import { Header } from "./components/Header/Header";
+import { Todos } from "./components/Todos/Todos";
 
 export default function App() {
   return (
