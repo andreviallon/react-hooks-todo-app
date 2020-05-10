@@ -4,14 +4,15 @@ import "bulma/css/bulma.css";
 
 import { Header } from "./components/Header/Header";
 import { Todos } from "./components/Todos/Todos";
+import { TodoProvider } from "./context/TodoState";
 
 export default function App() {
   return (
-    <div className="App">
+    <TodoProvider className="App">
       <Header />
       <div className="container">
         <Todos />
       </div>
-    </div>
+    </TodoProvider>
   );
 }
