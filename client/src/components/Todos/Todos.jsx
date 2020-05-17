@@ -1,26 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Todos.css";
 import { AddTodo } from "../AddTodo/AddTodo";
 import { Todo } from "../Todo/Todo";
 import { TodoContext } from "../../context/TodoState";
 
 export function Todos() {
-  const { todos } = useContext(TodoContext);
-
-  // const deleteTodo = index => {
-  //   const newTodos = [...todos];
-  //   newTodos.splice(index, 1);
-  //   setTodos(newTodos);
-  // };
-
-  // const completeTodo = index => {
-  //   const newTodos = [...todos];
-  //   newTodos[index].isCompleted = !newTodos[index].isCompleted;
-  //   setTodos(newTodos);
-  // };
+  const { todos, getTodos } = useContext(TodoContext);
+  
+  useEffect(() => {
+    getTodos();
+  }, []);
 
   return (
     <div>
+    <AddTodo />
       <div className="todo-list">
         <div className="table-container">
           <table className="table is-fullwidth is-hoverable">

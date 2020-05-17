@@ -6,7 +6,7 @@ export function Header() {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <h1 href="/" className="navbar-item">
-          React Hooks Todo App
+          React / Node Todo App
         </h1>
 
         <div className="navbar-end">

@@ -1,29 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TodoContext } from "../../context/TodoState";
 import "./AddTodo.css";
 
-const InputValue = defaultValue => {
-  const [value, setValue] = useState(defaultValue);
+export const AddTodo = () => {
+  const [todo, setTodo] = useState('');
+  const { addTodo } = useContext(TodoContext);
 
-  return {
-    value,
-    onChange: e => setValue(e.target.value),
-    clear: () => setValue("")
-  };
-};
-
-export function AddTodo({ onSubmit }) {
-  const todo = InputValue("");
+  const onSubmit = event => {
+    event.preventDefault()
+    addTodo(todo);
+  }
 
   return (
-    <form
-      className="flex-container"
-      onSubmit={e => {
-        e.preventDefault();
-        onSubmit(todo.value);
-        todo.clear();
-      }}
-    >
-      <input className="input" type="text" placeholder="Todo" {...todo} />
+    <form className="flex-container" onSubmit={onSubmit}>
+      <input className="input" type="text" placeholder="Todo" onChange={(e) => setTodo(e.target.value)} />
       <button className="button is-primary">Add Todo</button>
     </form>
   );
