@@ -9,11 +9,12 @@ export const AddTodo = () => {
   const onSubmit = event => {
     event.preventDefault()
     addTodo(todo);
+    setTodo('');
   }
 
   return (
     <form className="flex-container" onSubmit={onSubmit}>
-      <input className="input" type="text" placeholder="Todo" onChange={(e) => setTodo(e.target.value)} />
+      <input className="input" type="text" placeholder="Todo" value={todo} onChange={(e) => setTodo(e.target.value)} />
       <button className="button is-primary">Add Todo</button>
     </form>
   );
