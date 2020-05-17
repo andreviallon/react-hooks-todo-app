@@ -75,24 +75,3 @@ exports.deleteTodo = async (req, res, next) => {
         });
     }
 }
-
-// @desc Check todo
-// @route PUT /api/v1/todos/:id
-// @access Public
-exports.checkTodo = async (req, res, next) => {
-    try {
-        const todo = await Todo.update(req.body);
-
-        console.log('todo', todo);
-
-        return res.status(201).json({
-            success: true,
-            data: todo
-        });
-    } catch (err) {
-        return res.status(500).json({
-            success: false,
-            error: 'Server Error'
-        });
-    }
-}

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getTodos, addTodo, deleteTodo, checkTodo } = require('../controllers/todos');
+const { getTodos, addTodo, deleteTodo } = require('../controllers/todos');
 
 router
     .route('/')
@@ -10,6 +10,5 @@ router
 router
     .route('/:id')
     .delete(deleteTodo)
-    .patch(checkTodo);
 
 module.exports = router;

@@ -45,7 +45,7 @@ export const TodoProvider = ({ children }) => {
     }
 
     async function addTodo(todo) {
-        const newTodo = { text: todo, checkTodo: false};
+        const newTodo = { text: todo, checked: false};
         const config = {
             headers: {
                 "Content-Type": 'application/json'
@@ -58,23 +58,6 @@ export const TodoProvider = ({ children }) => {
                 payload: res.data.data
             });
         } catch (err) {
-            dispatch({
-                type: 'TODOS_ERROR',
-                payload: err.response.data.error
-            })
-        }
-    }
-
-    async function checkTodo(todo) {
-        try {
-            const updatedTodo = { ...todo, checked: !todo.checked }
-            await axios.patch(`/api/v1/todos/${todo._id}`);
-            dispatch({
-                type: "CHECK_TODO",
-                payload: updatedTodo
-            });
-        }
-        catch (err) {
             dispatch({
                 type: 'TODOS_ERROR',
                 payload: err.response.data.error
