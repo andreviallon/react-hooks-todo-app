@@ -73,8 +73,7 @@ export const TodoProvider = ({ children }) => {
                 loading: state.loading,
                 getTodos,
                 addTodo,
-                deleteTodo,
-                checkTodo
+                deleteTodo
             }}>
             {children}
         </TodoContext.Provider>
