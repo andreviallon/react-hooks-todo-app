@@ -52,9 +52,31 @@ export const TodoProvider = ({ children }) => {
             }
         }
         try {
-            const res = await axios.post('api/v1/todos', newTodo, config)
+            const res = await axios.post('api/v1/todos', newTodo, config);
             dispatch({
                 type: "ADD_TODO",
+                payload: res.data.data
+            });
+        } catch (err) {
+            dispatch({
+                type: 'TODOS_ERROR',
+                payload: err.response.data.error
+            })
+        }
+    }
+
+    async function checkTodo(todo) {
+        const updatedTodo = { ...todo, checked: !todo.checked };
+        const config = {
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        }
+
+        try {
+            const res = await axios.put(`api/v1/todos/${todo._id}`, updatedTodo, config);
+            dispatch({
+                type: "CHECK_TODO",
                 payload: res.data.data
             });
         } catch (err) {
@@ -73,6 +95,7 @@ export const TodoProvider = ({ children }) => {
                 loading: state.loading,
                 getTodos,
                 addTodo,
+                checkTodo,
                 deleteTodo
             }}>
             {children}

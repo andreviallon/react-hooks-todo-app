@@ -53,7 +53,6 @@ exports.addTodo = async (req, res, next) => {
 // @access Public
 exports.deleteTodo = async (req, res, next) => {
     try {
-        console.log('req', req.body);
         const todo = await Todo.findById(req.params.id);
 
         if (!todo) {

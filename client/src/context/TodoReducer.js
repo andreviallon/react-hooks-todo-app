@@ -11,6 +11,10 @@ export default (state, action) => {
                 ...state,
                 todos: [...state.todos, action.payload]
             };
+        case 'CHECK_TODO':
+            return {
+                ...state
+            };
         case 'DELETE_TODO':
             return {
                 ...state,
