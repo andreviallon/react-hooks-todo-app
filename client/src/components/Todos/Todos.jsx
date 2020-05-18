@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import "./Todos.css";
-import { AddTodo } from "../AddTodo/AddTodo";
-import { Todo } from "../Todo/Todo";
-import { Toast } from '../Toast/Toast'
-import { TodoContext } from "../../context/TodoState";
+import React, { useContext, useEffect } from 'react';
+import './Todos.css';
+import { AddTodo } from '../AddTodo/AddTodo';
+import { Todo } from '../Todo/Todo';
+import { TodoContext } from '../../context/TodoState';
 
 export function Todos() {
   const { todos, getTodos } = useContext(TodoContext);

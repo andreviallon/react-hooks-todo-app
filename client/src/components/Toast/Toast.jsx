@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { TodoContext } from "../../context/TodoState";
-import "./Toast.css";
+import { TodoContext } from '../../context/TodoState';
+import './Toast.css';
 
 export const Toast = () => {
     const [toastType, setToastType] = useState('');

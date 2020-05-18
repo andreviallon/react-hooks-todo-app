@@ -31,7 +31,7 @@ export const TodoProvider = ({ children }) => {
         try {
             await axios.delete(`/api/v1/todos/${id}`);
             dispatch({
-                type: "DELETE_TODO",
+                type: 'DELETE_TODO',
                 payload: id
             });
         }
@@ -49,14 +49,14 @@ export const TodoProvider = ({ children }) => {
         const newTodo = { text: todo, checked: false};
         const config = {
             headers: {
-                "Content-Type": 'application/json'
+                'Content-Type': 'application/json'
             }
         }
         
         try {
             const res = await axios.post('api/v1/todos', newTodo, config);
             dispatch({
-                type: "ADD_TODO",
+                type: 'ADD_TODO',
                 payload: res.data.data
             });
         } catch (err) {
@@ -72,14 +72,14 @@ export const TodoProvider = ({ children }) => {
         const updatedTodo = { ...todo, checked: !todo.checked };
         const config = {
             headers: {
-                "Content-Type": 'application/json'
+                'Content-Type': 'application/json'
             }
         }
 
         try {
             const res = await axios.put(`api/v1/todos/${todo._id}`, updatedTodo, config);
             dispatch({
-                type: "CHECK_TODO",
+                type: 'CHECK_TODO',
                 payload: res.data.data
             });
         } catch (err) {
@@ -92,7 +92,7 @@ export const TodoProvider = ({ children }) => {
 
     function clearToast() {
         dispatch({
-            type: "CLEAR_TOAST",
+            type: 'CLEAR_TOAST',
             payload: false
         });
     }
