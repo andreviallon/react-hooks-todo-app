@@ -20,6 +20,11 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use('/api/v1/todos', todos);
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
+}
+
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
