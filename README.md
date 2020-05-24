@@ -1,6 +1,6 @@
 # React & Nodejs Todo App
 
-An React "to-do" application.
+A React "to-do" application.
 
 ## What I Learned
 
