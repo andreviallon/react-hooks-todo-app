@@ -6,7 +6,8 @@ A React "to-do" application.
 
 * React (functional components / React Hooks)
 * State Management with React's context API
-* Promise based HTTP requests with Axios
+* Working with Databases (MongoDB)
+* Create Restfull API's with Nodejs
 * Deploy an appliation with heroku
 * The CSS Framework Bulma
 
