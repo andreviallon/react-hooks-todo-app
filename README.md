@@ -1,11 +1,11 @@
-# React & Nodejs Todo App
+# Todo App
 
-A React "to-do" application.
+See the app running live at https://infinite-crag-46049.herokuapp.com/
 
-## What I Learned
+## Technologies Used
 
 * React (functional components / React Hooks)
-* State Management with React's context API
+* React context API
 * Working with Databases (MongoDB)
 * Create Restfull API's with Nodejs
 * Deploy an appliation with heroku
