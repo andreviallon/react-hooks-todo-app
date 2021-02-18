@@ -14,6 +14,7 @@ export const TodoProvider = ({ children }) => {
 
     async function getTodos() {
         try {
+            clearToast();
             const res = await axios.get('/api/v1/todos');
             dispatch({
                 type: 'GET_TODOS',
@@ -29,6 +30,7 @@ export const TodoProvider = ({ children }) => {
 
     async function deleteTodo(id) {
         try {
+            clearToast();
             await axios.delete(`/api/v1/todos/${id}`);
             dispatch({
                 type: 'DELETE_TODO',
@@ -54,6 +56,7 @@ export const TodoProvider = ({ children }) => {
         }
         
         try {
+            clearToast();
             const res = await axios.post('api/v1/todos', newTodo, config);
             dispatch({
                 type: 'ADD_TODO',
@@ -77,6 +80,7 @@ export const TodoProvider = ({ children }) => {
         }
 
         try {
+            clearToast();
             const res = await axios.put(`api/v1/todos/${todo._id}`, updatedTodo, config);
             dispatch({
                 type: 'CHECK_TODO',

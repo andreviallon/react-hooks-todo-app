@@ -29,7 +29,7 @@ export default (state, action) => {
         case 'CLEAR_TOAST':
             return {
                 ...state,
-                toast: { ...state.toast, isShown: action.payload}
+                toast: { ...state.toast, isShown: action.payload }
             };
         default:
             return state;
